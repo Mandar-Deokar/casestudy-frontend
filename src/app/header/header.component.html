@@ -1,13 +1,24 @@
 
-<mat-toolbar color="primary">
-    <span>
-        E-commerce Application
-    </span>
-    <span class="space-button"></span>
-    <button routerLink="login" mat-raised-button color="primary">
-        Login
-    </button>
-    <button routerLink="" mat-raised-button color="warn">
-        Logout
-    </button>
-</mat-toolbar>
+<nav class="nav">
+    <h1><a routerLink="">E-commerce</a></h1>
+    <div *ngIf="menuType === 'default'" class="nav-search">
+        <input type="text" placeholder="Search Products" />
+        <button>Search</button>
+    </div>
+    <div [ngSwitch]="menuType">
+        <ul *ngSwitchCase="'default'">
+            <li><a routerLink="vendor-auth">Vendor</a></li>
+            <li><a routerLink="">Home</a></li>
+            <li><a href="#">Login</a></li>
+            <li><a href="#">cart(0)</a></li>
+        </ul>
+        <ul *ngSwitchCase="'vendor'">
+            <li><a routerLink="">Product List</a></li>
+            <li><a href="#">Add Product</a></li>
+            <li><a (click)="logout()">Logout</a></li>
+            <li><a href="#">cart(0)</a></li>
+        </ul>
+    </div>
+    
+    
+</nav>
