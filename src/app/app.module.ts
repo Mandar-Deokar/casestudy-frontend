@@ -13,6 +13,7 @@ import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { VendorAuthComponent } from './vendor-auth/vendor-auth.component';
 import { VendorHomeComponent } from './vendor-home/vendor-home.component';
+import { VendorAddproductComponent } from './vendor-addproduct/vendor-addproduct.component';
 
 
 
@@ -25,7 +26,8 @@ import { VendorHomeComponent } from './vendor-home/vendor-home.component';
     HeaderComponent,
     HomeComponent,
     VendorAuthComponent,
-    VendorHomeComponent
+    VendorHomeComponent,
+    VendorAddproductComponent
   ],
   imports: [
     BrowserModule,

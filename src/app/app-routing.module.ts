@@ -4,6 +4,7 @@ import { HomeComponent } from './home/home.component';
 import { VendorAuthComponent } from './vendor-auth/vendor-auth.component';
 import { VendorHomeComponent } from './vendor-home/vendor-home.component';
 import { authGuard } from './auth.guard';
+import { VendorAddproductComponent } from './vendor-addproduct/vendor-addproduct.component';
 
 
 const routes: Routes = [
@@ -22,6 +23,11 @@ const routes: Routes = [
   {
     path : 'vendor-home',
     component : VendorHomeComponent,
+    canActivate : [authGuard]
+  },
+  {
+    path : 'vendor-addproduct',
+    component : VendorAddproductComponent,  
     canActivate : [authGuard]
   }
 

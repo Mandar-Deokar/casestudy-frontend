@@ -8,8 +8,8 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent {
 
-  menuType : String = 'default';
-  vendorName : String = '';
+  menuType : string = 'default';
+  vendorName : string = '';
   constructor(private router:Router){}
   logout(){
     localStorage.removeItem('vendor');
@@ -24,7 +24,15 @@ export class HeaderComponent {
           this.menuType = 'vendor';
           if(localStorage.getItem('vendor')){
             let vendorstore = localStorage.getItem('vendor');
+            console.log(vendorstore);
+
             let vendorData = vendorstore && JSON.parse(vendorstore);
+            console.log(vendorData);
+            if (vendorData && vendorData.name) {
+              this.vendorName = vendorData.name;
+            } else {
+              console.error("Vendor data or 'name' property is undefined");
+            }
           }
         }
         else {

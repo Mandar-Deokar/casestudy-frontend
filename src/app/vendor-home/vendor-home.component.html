@@ -1,1 +1,15 @@
-<p>vendor-home works!</p>
+<!-- item-display.component.html -->
+<div *ngFor="let product of productlist">
+    <div class="product-container">
+        <img [src]="product.image" alt="{{ product.productName }}">
+
+        <h2>{{ product.productName }}</h2>
+      
+        <p>{{ product.details }}</p>
+
+        <p>Price: Rs.{{ product.price }}</p>
+
+      </div>
+  </div>
+
+  

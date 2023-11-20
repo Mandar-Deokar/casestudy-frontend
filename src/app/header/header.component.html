@@ -13,10 +13,10 @@
             <li><a href="#">cart(0)</a></li>
         </ul>
         <ul *ngSwitchCase="'vendor'">
-            <li><a routerLink="">Product List</a></li>
-            <li><a href="#">Add Product</a></li>
+            <li><a routerLink="vendor-home">Product List</a></li>
+            <li><a routerLink="vendor-addproduct">Add Product</a></li>
             <li><a (click)="logout()">Logout</a></li>
-            <li><a href="#">cart(0)</a></li>
+            <li><a href="#">{{vendorName | titlecase}}</a></li>
         </ul>
     </div>
     

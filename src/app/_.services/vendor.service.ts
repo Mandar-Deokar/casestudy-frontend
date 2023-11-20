@@ -15,7 +15,7 @@ export class VendorService {
   isLoginError = new EventEmitter<boolean>(false);
 
   constructor(private http: HttpClient, private router: Router) { }
-  userSignup(data: SignUp) {
+  userSignup(data: SignUp) : boolean {
 
     this.http.post('http://localhost:8080/signup',
       data,
@@ -60,7 +60,6 @@ export class VendorService {
       }
       
     );
-
     return false;
   }
 }
