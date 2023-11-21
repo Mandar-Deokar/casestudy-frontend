@@ -5,6 +5,7 @@ import { VendorAuthComponent } from './vendor-auth/vendor-auth.component';
 import { VendorHomeComponent } from './vendor-home/vendor-home.component';
 import { authGuard } from './auth.guard';
 import { VendorAddproductComponent } from './vendor-addproduct/vendor-addproduct.component';
+import { VendorUpdateproductComponent } from './vendor-updateproduct/vendor-updateproduct.component';
 
 
 const routes: Routes = [
@@ -28,6 +29,11 @@ const routes: Routes = [
   {
     path : 'vendor-addproduct',
     component : VendorAddproductComponent,  
+    canActivate : [authGuard]
+  },
+  {
+    path : 'vendor-updateproduct/:productId',
+    component : VendorUpdateproductComponent,
     canActivate : [authGuard]
   }
 

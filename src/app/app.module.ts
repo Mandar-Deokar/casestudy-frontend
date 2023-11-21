@@ -14,6 +14,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { VendorAuthComponent } from './vendor-auth/vendor-auth.component';
 import { VendorHomeComponent } from './vendor-home/vendor-home.component';
 import { VendorAddproductComponent } from './vendor-addproduct/vendor-addproduct.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { VendorUpdateproductComponent } from './vendor-updateproduct/vendor-updateproduct.component';
 
 
 
@@ -27,7 +29,8 @@ import { VendorAddproductComponent } from './vendor-addproduct/vendor-addproduct
     HomeComponent,
     VendorAuthComponent,
     VendorHomeComponent,
-    VendorAddproductComponent
+    VendorAddproductComponent,
+    VendorUpdateproductComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +41,8 @@ import { VendorAddproductComponent } from './vendor-addproduct/vendor-addproduct
     MatFormFieldModule,
     MatInputModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FontAwesomeModule
   ],
   bootstrap: [AppComponent]
 })

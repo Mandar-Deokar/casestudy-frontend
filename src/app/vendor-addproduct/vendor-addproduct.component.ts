@@ -22,5 +22,7 @@ export class VendorAddproductComponent {
       setTimeout(()=>this.addproductmessage=undefined,3000);
     })
 
+    
+
   }
 }
