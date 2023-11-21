@@ -16,6 +16,8 @@ import { VendorHomeComponent } from './vendor-home/vendor-home.component';
 import { VendorAddproductComponent } from './vendor-addproduct/vendor-addproduct.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { VendorUpdateproductComponent } from './vendor-updateproduct/vendor-updateproduct.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { DisplayProductComponent } from './display-product/display-product.component';
 
 
 
@@ -30,7 +32,8 @@ import { VendorUpdateproductComponent } from './vendor-updateproduct/vendor-upda
     VendorAuthComponent,
     VendorHomeComponent,
     VendorAddproductComponent,
-    VendorUpdateproductComponent
+    VendorUpdateproductComponent,
+    DisplayProductComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +45,8 @@ import { VendorUpdateproductComponent } from './vendor-updateproduct/vendor-upda
     MatInputModule,
     FormsModule,
     HttpClientModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    NgbModule
   ],
   bootstrap: [AppComponent]
 })

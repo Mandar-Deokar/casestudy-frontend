@@ -1,24 +1,24 @@
-<!-- item-display.component.html -->
-<p class="message-p">{{deleteproductmessage}}</p>
+<p class="message-p">{{ deleteproductmessage }}</p>
 
-
-<div *ngFor="let product of productlist">
-
-    <div class="product-container">
-
-        <img [src]="product.image" alt="{{ product.productName }}">
-
-        <h2>{{ product.productName }}</h2>
-      
-        <p>{{ product.details }}</p>
-
-        <p>Price: Rs.{{ product.price }}</p>
-
-        <fa-icon (click)="delete(product.productId)" [icon]="icon"></fa-icon>
-        <a class="update-link" routerLink='/vendor-updateproduct/{{product.productId}}'><fa-icon [icon]="edit"></fa-icon></a>
-        
-
-      </div>
-  </div>
-
-  
+<div class="row">
+    <div *ngFor="let product of productlist" class="col-md-3 mb-4">
+        <div class="card h-100">
+            <div class="d-flex justify-content-center align-items-center">
+                <img [src]="product.image" class="image card-img-top img-fluid" alt="{{ product.productName }}">
+              </div>
+            <div class="card-body flex-grow-1 d-flex flex-column align-items-center">
+                <h2 class="card-title">{{ product.productName }}</h2>
+                <p class="card-text">details : {{ product.details }}</p>
+                <p class="card-text">Price: Rs.{{ product.price }}</p>
+            </div>
+            <div class="card-footer">
+                <button (click)="delete(product.productId)" class="btn btn-danger btn-sm">
+                    <fa-icon [icon]="icon"></fa-icon> Delete
+                </button>
+                <a routerLink="/vendor-updateproduct/{{ product.productId }}" class="btn btn-primary btn-sm ml-2">
+                    <fa-icon [icon]="edit"></fa-icon> Update
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

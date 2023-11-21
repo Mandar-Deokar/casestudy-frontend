@@ -3,7 +3,7 @@
     <p class="message-p">{{updateproductmessage}}</p>
 
     <form #updateProduct="ngForm" (ngSubmit)="updateproduct(updateProduct.value)" class="common-form">
-
+      
         <input class="form-input" name="productName" placeholder="Product Name" type="text" ngModel="{{product?.productName}}" />
 
         <input class="form-input" name="price" placeholder="Product Price" type="text" ngModel="{{product?.price}}" />
