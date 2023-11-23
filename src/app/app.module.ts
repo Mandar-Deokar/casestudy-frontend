@@ -18,6 +18,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { VendorUpdateproductComponent } from './vendor-updateproduct/vendor-updateproduct.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DisplayProductComponent } from './display-product/display-product.component';
+import { SearchProductComponent } from './search-product/search-product.component';
+import { UserAuthComponent } from './user-auth/user-auth.component';
 
 
 
@@ -33,7 +35,9 @@ import { DisplayProductComponent } from './display-product/display-product.compo
     VendorHomeComponent,
     VendorAddproductComponent,
     VendorUpdateproductComponent,
-    DisplayProductComponent
+    DisplayProductComponent,
+    SearchProductComponent,
+    UserAuthComponent
   ],
   imports: [
     BrowserModule,

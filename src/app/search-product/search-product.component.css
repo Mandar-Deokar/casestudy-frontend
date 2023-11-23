@@ -1,0 +1,23 @@
+.search-result{
+    margin : 25px auto;
+    width: 800px;
+    border-top: 1px solid #ddd;
+    padding: 10px;
+}
+.search-result img {
+    object-fit: contain;
+    width: 100%;
+    height: 150px;
+}
+.search-result h6 {
+    font-size: 25px;
+    color: blue;
+}
+
+.search-result p {
+    margin: 5px;
+}
+
+.search-result span{
+    margin-right: 10px;
+}

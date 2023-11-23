@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { ProductService } from '../_.services/product.service';
+import { Product } from '../_.model/productmodel';
 
 @Component({
   selector: 'app-header',
@@ -10,7 +12,8 @@ export class HeaderComponent {
 
   menuType : string = 'default';
   vendorName : string = '';
-  constructor(private router:Router){}
+  searchResult : undefined | Product[];
+  constructor(private router:Router, private productservice : ProductService){}
   logout(){
     localStorage.removeItem('vendor');
     this.router.navigate(['home']);
@@ -41,5 +44,29 @@ export class HeaderComponent {
         }
       }
     })
+  }
+
+  searchproduct(data : KeyboardEvent){
+    if(data){
+      const element = data.target as HTMLInputElement;
+      this.productservice.searchproduct(element.value).subscribe((result : Product[])=>{ 
+        if(result.length > 5) {
+          result.length = 5;
+        }
+        this.searchResult = result;
+        console.log(this.searchResult);
+      })
+    }
+  }
+
+  hideSearch(){
+    this.searchResult = undefined;
+  }
+  onSearch(searchString : string){
+    this.router.navigate([`search/${searchString}`]);
+  }
+
+  redirectToDetails(productId : number){
+    this.router.navigate(['display-product/'+productId]);
   }
 }

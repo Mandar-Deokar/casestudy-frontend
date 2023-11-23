@@ -30,4 +30,8 @@ export class ProductService {
     return this.http.post<Product>(`http://localhost:8080/products/update`,product);
   }
 
+  searchproduct(searchString : string){
+    return this.http.get<Product[]>(`http://localhost:8080/products/search/${searchString}`);
+  }
+
 }

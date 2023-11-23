@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ProductService } from '../_.services/product.service';
 import { Product } from '../_.model/productmodel';
-import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faCartShopping, faCircle, faCircleInfo, faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-home',
@@ -13,16 +13,15 @@ export class HomeComponent {
   productlist : undefined | Product[]
   icon  = faTrash
   edit = faEdit
+  cart = faCartShopping
+  details = faCircleInfo
   constructor(private productservice : ProductService){}
 
   ngOnInit(){
-    this.productservice.productList().subscribe((data)=>{
+    this.productservice.productList().subscribe((data : Product[])=>{
       this.productlist = data
     })
   }
 
-  displayproduct(product : Product){
-    return product;
-  }
-
+ 
 }

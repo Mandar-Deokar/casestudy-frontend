@@ -36,7 +36,7 @@ export class VendorService {
     }
   }
 
-  userLogin(data: LogIn) : boolean {
+  userLogin(data: LogIn) {
     //console.warn(data);
     this.http.post('http://localhost:8080/login',
       data,
@@ -59,7 +59,7 @@ export class VendorService {
         console.error(error);
       }
       
-    );
-    return false;
+    )
+    
   }
 }

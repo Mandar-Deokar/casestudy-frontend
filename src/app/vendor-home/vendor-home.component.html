@@ -2,7 +2,9 @@
 
 <div class="row">
     <div *ngFor="let product of productlist" class="col-md-3 mb-4">
+        <a routerLink="/display-product/{{product.productId}}">
         <div class="card h-100">
+            
             <div class="d-flex justify-content-center align-items-center">
                 <img [src]="product.image" class="image card-img-top img-fluid" alt="{{ product.productName }}">
               </div>
@@ -20,5 +22,7 @@
                 </a>
             </div>
         </div>
+    </a>
+
     </div>
 </div>

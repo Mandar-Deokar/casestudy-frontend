@@ -1,23 +1,26 @@
-
 <div class="row">
     <div *ngFor="let product of productlist" class="col-md-3 mb-4">
-        <div (click)="displayproduct(product)" class="card h-100">
-            <div class="d-flex justify-content-center align-items-center">
-                <img [src]="product.image" class="image card-img-top img-fluid" alt="{{ product.productName }}">
-              </div>
-            <div class="card-body flex-grow-1 d-flex flex-column align-items-center">
-                <h2 class="card-title">{{ product.productName }}</h2>
-                <p class="card-text">details : {{ product.details }}</p>
-                <p class="card-text">Price: Rs.{{ product.price }}</p>
-            </div>
-            <div class="card-footer">
-                <button class="addtocart btn btn-primary btn-sm">
-                    <fa-icon [icon]="icon"></fa-icon> Add to Cart
-                </button>
-                <button class="buynow btn btn-primary btn-sm">
-                    <fa-icon [icon]="edit"></fa-icon> Buy Now
-                </button>
-            </div>
+        <a routerLink="display-product/{{product.productId}}">
+        <div class="card h-100">
+            
+                <div class="d-flex justify-content-center align-items-center">
+                    <img [src]="product.image" class="image card-img-top img-fluid" alt="{{ product.productName }}">
+                </div>
+                <div class="card-body flex-grow-1 d-flex flex-column align-items-center">
+                    <h2 class="card-title">{{ product.productName }}</h2>
+                    <p class="card-text">details : {{ product.details }}</p>
+                    <p class="card-text">Price: Rs.{{ product.price }}</p>
+                </div>
+                <div class="card-footer">
+                    <button class="addtocart btn btn-primary btn-sm">
+                        <fa-icon [icon]="details"></fa-icon> View Detail
+                    </button>
+                    <button class="buynow btn btn-primary btn-sm">
+                        <fa-icon [icon]="cart"></fa-icon> Add to Cart
+                    </button>
+                </div>
+            
         </div>
+        </a>
     </div>
 </div>

@@ -19,7 +19,7 @@ export class VendorAddproductComponent {
       if(result){
         this.addproductmessage = "Product is successfully added"; 
       }
-      setTimeout(()=>this.addproductmessage=undefined,3000);
+      setTimeout(()=>this.addproductmessage=undefined,2000);
     })
 
     

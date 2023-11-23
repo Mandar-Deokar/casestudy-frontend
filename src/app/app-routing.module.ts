@@ -6,6 +6,9 @@ import { VendorHomeComponent } from './vendor-home/vendor-home.component';
 import { authGuard } from './auth.guard';
 import { VendorAddproductComponent } from './vendor-addproduct/vendor-addproduct.component';
 import { VendorUpdateproductComponent } from './vendor-updateproduct/vendor-updateproduct.component';
+import { DisplayProductComponent } from './display-product/display-product.component';
+import { SearchProductComponent } from './search-product/search-product.component';
+import { UserAuthComponent } from './user-auth/user-auth.component';
 
 
 const routes: Routes = [
@@ -35,6 +38,18 @@ const routes: Routes = [
     path : 'vendor-updateproduct/:productId',
     component : VendorUpdateproductComponent,
     canActivate : [authGuard]
+  },
+  {
+    path : 'display-product/:productId',
+    component : DisplayProductComponent
+  },
+  {
+    path : 'search/:searchString',
+    component : SearchProductComponent
+  },
+  {
+    path : 'user-auth',
+    component : UserAuthComponent
   }
 
 ];

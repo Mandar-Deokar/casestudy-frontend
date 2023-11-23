@@ -10,36 +10,38 @@ import { LogIn } from '../_.model/loginmodel';
   styleUrls: ['./vendor-auth.component.css']
 })
 export class VendorAuthComponent {
-  constructor(private vendorservice: VendorService,  private router : Router, ){}
-  
+  constructor(private vendorservice: VendorService, private router: Router,) { }
+
   showlogin = true;
-  authError : String = "";
-  
-  ngOnInit(): void{
+  authError: String = "";
+
+  ngOnInit(): void {
     this.vendorservice.reloadvendor();
   }
 
-  signup(data: SignUp):void{
+  signup(data: SignUp): void {
+    data.role = "vendor"
     this.vendorservice.userSignup(data)
-}
+  }
 
   openlogin() {
     this.showlogin = true
   }
 
-  opensignup(){
+  opensignup() {
     this.showlogin = false
   }
- 
-  login(data : LogIn):void{
-    this.authError = ""; 
-    console.warn(data);
+
+  login(data: LogIn): void {
+    this.authError = "";
+    //console.warn(data);
+    data.role = "vendor"
     this.vendorservice.userLogin(data);
-    this.vendorservice.isLoginError.subscribe((isError)=>{
-      if(isError){
+    this.vendorservice.isLoginError.subscribe((isError) => {
+      if (isError) {
         this.authError = "Email or Password is not correct";
       }
     })
-    
+
   }
 }

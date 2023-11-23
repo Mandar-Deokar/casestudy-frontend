@@ -54,3 +54,24 @@ h1 a {
     color: blueviolet;
     text-decoration: none;
 }
+
+.search-result {
+
+    position: absolute;
+    display: list-item !important;
+    z-index: 10;
+    background-color: #fff;
+    width: 400px;
+    top: 40px;
+    border: 1px solid #ddd;
+}
+
+.search-result li {
+    border: 1px solid #ddd;
+    padding: 5px;
+}
+
+.search-result li a {
+    cursor: pointer;
+    color: skyblue;
+}

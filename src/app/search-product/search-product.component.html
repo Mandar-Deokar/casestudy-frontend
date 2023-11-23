@@ -1,0 +1,17 @@
+<div class="row search-result" *ngFor="let product of searchResult">
+    <div class="col-sm-3">
+        <img src="{{product.image}}" alt="{{product.productName}}">
+    </div>
+    <div class="col-sm-8 details">
+        <h6>{{product.productName}}</h6>
+        <p><b>price : {{product.price}}</b></p>
+        <p>Details : {{product.details}}</p>
+        <p><span>madein : {{product.madeIn}}</span><span>rating : {{product.rating}}</span></p>
+        <p><span>category : {{product.category}}</span><span>brand : {{product.brand}}</span></p>
+        <p>product serach ui</p>
+
+
+    </div>
+
+
+</div>
