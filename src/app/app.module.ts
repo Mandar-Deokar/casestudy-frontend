@@ -20,6 +20,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DisplayProductComponent } from './display-product/display-product.component';
 import { SearchProductComponent } from './search-product/search-product.component';
 import { UserAuthComponent } from './user-auth/user-auth.component';
+import { ProductCatgoryComponent } from './product-catgory/product-catgory.component';
+import { ProductCatgoryNavbarComponent } from './product-catgory-navbar/product-catgory-navbar.component';
 
 
 
@@ -37,7 +39,9 @@ import { UserAuthComponent } from './user-auth/user-auth.component';
     VendorUpdateproductComponent,
     DisplayProductComponent,
     SearchProductComponent,
-    UserAuthComponent
+    UserAuthComponent,
+    ProductCatgoryComponent,
+    ProductCatgoryNavbarComponent
   ],
   imports: [
     BrowserModule,

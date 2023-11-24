@@ -12,6 +12,7 @@ import { identifierName } from '@angular/compiler';
 export class DisplayProductComponent {
   productdata : undefined | Product
   productQuantity : number=1
+  removeCart = false
   constructor(private activateRoute : ActivatedRoute, private productservice : ProductService){}
 
   ngOnInit() : void{
@@ -20,6 +21,18 @@ export class DisplayProductComponent {
     productId && this.productservice.getproduct(productId).subscribe((result)=>{
       console.warn(result);
       this.productdata = result;
+
+      let cartData = localStorage.getItem('localcart');
+      if(productId && cartData){
+        let items = JSON.parse(cartData);
+        items = items.filter((item : Product)=> productId == item.productId.toString())
+        if(items.length){
+          this.removeCart = true;
+        }
+        else {
+          this.removeCart = false;
+        }
+      }
     })
   }
 
@@ -31,6 +44,22 @@ export class DisplayProductComponent {
     else if(this.productQuantity>1 && operation==='minus'){
       this.productQuantity -= 1;
     }
+  }
+
+  AddToCart(){
+    if(this.productdata){
+      this.productdata.quantity = this.productQuantity;
+      if(!localStorage.getItem('user')){
+        console.warn(this.productdata);
+        this.productservice.localAddtoCart(this.productdata);
+        this.removeCart = true;
+      }
+      
+    }
+  }
+
+  removeToCart(productId:number){
+
   }
   
 }

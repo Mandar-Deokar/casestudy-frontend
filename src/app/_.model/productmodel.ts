@@ -7,5 +7,6 @@ export interface Product{
     madeIn : string,
     rating : number,
     category : string,
-    image : string
+    image : string,
+    quantity : undefined | number
 }

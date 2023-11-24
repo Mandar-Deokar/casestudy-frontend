@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProductService } from '../_.services/product.service';
 import { Product } from '../_.model/productmodel';
+import { JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'app-header',
@@ -13,6 +14,8 @@ export class HeaderComponent {
   menuType : string = 'default';
   vendorName : string = '';
   searchResult : undefined | Product[];
+  userName : string = '';
+  cartItems = 0
   constructor(private router:Router, private productservice : ProductService){}
   logout(){
     localStorage.removeItem('vendor');
@@ -23,14 +26,14 @@ export class HeaderComponent {
     this.router.events.subscribe((val : any)=>{
       if(val.url){
         if(localStorage.getItem('vendor') && val.url.includes('vendor')){
-          console.warn("in vendor area");
+          //console.warn("in vendor area");
           this.menuType = 'vendor';
           if(localStorage.getItem('vendor')){
             let vendorstore = localStorage.getItem('vendor');
-            console.log(vendorstore);
+            //console.log(vendorstore);
 
             let vendorData = vendorstore && JSON.parse(vendorstore);
-            console.log(vendorData);
+            //console.log(vendorData);
             if (vendorData && vendorData.name) {
               this.vendorName = vendorData.name;
             } else {
@@ -38,14 +41,34 @@ export class HeaderComponent {
             }
           }
         }
+        else if(localStorage.getItem('user')){
+          let userrstore = localStorage.getItem('user');
+          let userData = userrstore && JSON.parse(userrstore);
+          this.userName = userData.name;
+          this.menuType = 'user';
+        }
         else {
-          console.warn("outside vendor area");
+          //console.warn("outside vendor area");
           this.menuType = 'default'
         }
       }
     })
+
+    let cartdata = localStorage.getItem('localCart');
+    if(cartdata){
+      this.cartItems = JSON.parse(cartdata).length
+    }
+
+    this.productservice.cartData.subscribe((items)=>{
+      this.cartItems = items.length;
+    })
+
   }
 
+  userlogout(){
+    localStorage.removeItem('user');
+    this.router.navigate(['/user-auth']);
+  }
   searchproduct(data : KeyboardEvent){
     if(data){
       const element = data.target as HTMLInputElement;
@@ -58,6 +81,7 @@ export class HeaderComponent {
       })
     }
   }
+
 
   hideSearch(){
     this.searchResult = undefined;

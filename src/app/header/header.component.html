@@ -14,8 +14,15 @@
         <ul *ngSwitchCase="'default'">
             <li><a routerLink="vendor-auth">Vendor</a></li>
             <li><a routerLink="">Home</a></li>
-            <li><a href="#">Login</a></li>
-            <li><a href="#">cart(0)</a></li>
+            <li><a routerLink="user-auth">Login/Sign-up</a></li>
+            <li><a href="#">cart({{cartItems}})</a></li>
+        </ul>
+        <ul *ngSwitchCase="'user'">
+            <li><a routerLink="vendor-auth">Vendor</a></li>
+            <li><a routerLink="">Home</a></li>
+            <li><a>{{userName | titlecase}}</a></li>
+            <li><a (click)="userlogout()">Logout</a></li>
+            <li><a href="#">cart({{cartItems}})</a></li>
         </ul>
         <ul *ngSwitchCase="'vendor'">
             <li><a routerLink="vendor-home">Product List</a></li>

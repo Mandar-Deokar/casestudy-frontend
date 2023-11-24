@@ -9,6 +9,8 @@ import { VendorUpdateproductComponent } from './vendor-updateproduct/vendor-upda
 import { DisplayProductComponent } from './display-product/display-product.component';
 import { SearchProductComponent } from './search-product/search-product.component';
 import { UserAuthComponent } from './user-auth/user-auth.component';
+import { ProductCatgoryComponent } from './product-catgory/product-catgory.component';
+import { ProductCatgoryNavbarComponent } from './product-catgory-navbar/product-catgory-navbar.component';
 
 
 const routes: Routes = [
@@ -50,6 +52,10 @@ const routes: Routes = [
   {
     path : 'user-auth',
     component : UserAuthComponent
+  },
+  {
+    path : 'category-navbar',
+    component : ProductCatgoryNavbarComponent
   }
 
 ];

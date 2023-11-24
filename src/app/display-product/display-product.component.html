@@ -12,7 +12,9 @@
         <h3>Details : {{productdata.details}}</h3>
         <h3>Miadein : {{productdata.madeIn}}</h3>
         <h3>Rating : {{productdata.rating}}</h3>
-        <button class="form-button">Add to Cart</button>
+        <button *ngIf="!removeCart"  class="form-button" (click)="AddToCart()">Add to Cart</button>
+        <button *ngIf="removeCart"  class="form-button" (click)="removeToCart(productdata.productId)">Add to Cart</button>
+
         <button class="form-button">Buy Now</button>
         <div class="quantity-group">
             <button (click)="handlequantity('minus')">-</button>

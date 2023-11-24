@@ -47,13 +47,13 @@ export class VendorService {
         if (result && result.body) {
           localStorage.setItem('vendor', JSON.stringify(result.body));
           this.router.navigate(['vendor-home']);
-          console.warn("vendor loggrd in")
+          console.warn("vendor logged in")
         } else {
           console.warn("login failed");
         }
       },
       (error)=>{
-        if(error.status === 404){
+        if(error.status === 500){
           this.isLoginError.emit(true);
         }
         console.error(error);
