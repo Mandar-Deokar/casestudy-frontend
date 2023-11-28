@@ -46,6 +46,7 @@ export class HeaderComponent {
           let userData = userrstore && JSON.parse(userrstore);
           this.userName = userData.name;
           this.menuType = 'user';
+          this.productservice.getcartList(userData.userId)
         }
         else {
           //console.warn("outside vendor area");
@@ -68,6 +69,7 @@ export class HeaderComponent {
   userlogout(){
     localStorage.removeItem('user');
     this.router.navigate(['/user-auth']);
+    this.productservice.cartData.emit([]);
   }
   searchproduct(data : KeyboardEvent){
     if(data){

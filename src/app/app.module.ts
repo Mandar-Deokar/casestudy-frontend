@@ -22,6 +22,8 @@ import { SearchProductComponent } from './search-product/search-product.componen
 import { UserAuthComponent } from './user-auth/user-auth.component';
 import { ProductCatgoryComponent } from './product-catgory/product-catgory.component';
 import { ProductCatgoryNavbarComponent } from './product-catgory-navbar/product-catgory-navbar.component';
+import { DisplayCartComponent } from './display-cart/display-cart.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 
 
@@ -41,7 +43,9 @@ import { ProductCatgoryNavbarComponent } from './product-catgory-navbar/product-
     SearchProductComponent,
     UserAuthComponent,
     ProductCatgoryComponent,
-    ProductCatgoryNavbarComponent
+    ProductCatgoryNavbarComponent,
+    DisplayCartComponent,
+    CheckoutComponent
   ],
   imports: [
     BrowserModule,

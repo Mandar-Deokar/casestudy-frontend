@@ -1,5 +1,5 @@
-export interface Product{
-    productId : number,
+export interface Cart{
+    cartId : undefined | number,
     productName : string,
     price : number,
     details : string,
@@ -8,7 +8,7 @@ export interface Product{
     rating : number,
     category : string,
     image : string,
-    quantity : undefined | number,
-    cartId : number | undefined,
-    userId : number | undefined
+    quantity : undefined | number
+    userId : number,
+    productId : number
 }
