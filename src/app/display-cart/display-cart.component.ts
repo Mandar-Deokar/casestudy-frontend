@@ -37,7 +37,6 @@ export class DisplayCartComponent {
   loadDetails(){
     this.productservice.currentCart().subscribe((result) => {
       this.cartData = result;
-      console.log(this.cartData);
       
       console.warn(this.cartData);
       let price = 0;

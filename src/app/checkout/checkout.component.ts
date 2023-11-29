@@ -35,34 +35,37 @@ export class CheckoutComponent {
   }
 
 
-  orderNow(data: { email: string, address: string, contact: string }) {
+  orderNow(data: { address: string, contact: string }) {
     let user = localStorage.getItem('user');
-    let userId = user && JSON.parse(user).id;
+    let userId = user && JSON.parse(user).userId;
     if (this.totalPrice) {
       let orderData: Order = {
         ...data,
         totalPrice: this.totalPrice,
         userId,
         orderId: undefined,
-        orderItemId : undefined
+        orderItems : undefined
       }
+
+      
+
+      this.productservice.orderNow(orderData).subscribe((result) => {
+        if (result) {
+
+          this.orderMsg = "Order has been placed";
+          setTimeout(() => {
+            this.orderMsg = undefined;
+            this.router.navigate(['/myorders'])
+          }, 4000);
+
+        }
+
+      })
 
       this.cartData?.forEach((item) => {
         setTimeout(() => {
           item.cartItemId && this.productservice.deleteCartItems(item.cartItemId);
         }, 700)
-      })
-
-      this.productservice.orderNow(orderData).subscribe((result) => {
-        if (result) {
-          this.orderMsg = "Order has been placed";
-          setTimeout(() => {
-            this.orderMsg = undefined;
-            this.router.navigate(['/my-orders'])
-          }, 4000);
-
-        }
-
       })
     }
 

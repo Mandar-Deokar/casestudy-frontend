@@ -1,16 +1,15 @@
 export interface Order{
-    email:string,
     address:string,
     contact:string,
     totalPrice:number,
     userId:string,
-    orderItemId:number[] |undefined,
     orderId : number | undefined
+    orderItems: OrderItem[]| undefined
 }
 
 export interface OrderItem {
-    productId : number,
-    userId : number,
+    productname : string,
     quantity : number,
-    orderId : number
+    orderItemId : number,
+    productPrice : number
 }

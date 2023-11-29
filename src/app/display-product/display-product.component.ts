@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { Product } from '../_.model/productmodel';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../_.services/product.service';
-import { identifierName } from '@angular/compiler';
 import { Cart } from '../_.model/cartmodel';
 
 @Component({
@@ -11,10 +10,10 @@ import { Cart } from '../_.model/cartmodel';
   styleUrls: ['./display-product.component.css']
 })
 export class DisplayProductComponent {
-  productdata: undefined | Product;
+  productdata: Product | undefined;
   productQuantity: number = 1;
   removeCart = false;
-  cartData : Product | undefined
+  cartData: Product | undefined
   constructor(private activateRoute: ActivatedRoute, private productservice: ProductService) { }
 
   ngOnInit(): void {
@@ -43,13 +42,12 @@ export class DisplayProductComponent {
         this.productservice.getcartList(userId);
         this.productservice.cartData.subscribe((result) => {
           let item: Product[] = result;
+          let filteredItems: Product[] = item.filter(
+            (product: Product) => productId?.toString() === product.productId.toString()
+          );
 
-    let filteredItems: Product[] = item.filter(
-      (product: Product) => productId?.toString() === product.productId.toString()
-    );
-
-    //console.log(filteredItems);
-          if (item.length>0) {
+          //console.log(filteredItems);
+          if (filteredItems.length > 0) {
             //console.log(item);
             this.cartData = item[0]
             this.removeCart = true;
@@ -84,7 +82,7 @@ export class DisplayProductComponent {
           userId,
           productId: this.productdata.productId,
           cartId: undefined,
-          
+
         }
         delete cartData.cartId;
         //console.warn(cartData);
@@ -105,20 +103,18 @@ export class DisplayProductComponent {
 
     if (!localStorage.getItem('user')) {
       this.productservice.removeItemFromCart(productId);
-      
+
     }
     else {
       console.warn(this.cartData);
-      
       this.cartData && this.productservice.removeToCart(this.cartData)
-      .subscribe((result)=>{
-        
-        if(result){
-          let user = localStorage.getItem('user');
-          let userId = user && JSON.parse(user).userId;
-          this.productservice.getcartList(userId);
-        }
-      })
+        .subscribe((result) => {
+          if (result) {
+            let user = localStorage.getItem('user');
+            let userId = user && JSON.parse(user).userId;
+            this.productservice.getcartList(userId);
+          }
+        })
     }
     this.removeCart = false;
 

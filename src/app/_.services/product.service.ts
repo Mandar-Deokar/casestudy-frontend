@@ -3,7 +3,7 @@ import { EventEmitter, Injectable } from '@angular/core';
 import { Product } from '../_.model/productmodel';
 import { Cart } from '../_.model/cartmodel';
 import { CartItem } from '../_.model/cartItemmodel';
-import { Order } from '../_.model/ordermodel';
+import { Order, OrderItem } from '../_.model/ordermodel';
 
 @Injectable({
   providedIn: 'root'
@@ -114,12 +114,12 @@ export class ProductService {
   }
 
   orderNow(data: Order) {
-    return this.http.post(`http://localhost:8080/order/${data.userId}/createOrder`, data);
+    return this.http.post(`http://localhost:8080/order/createOrder`, data);
   }
   orderList() {
     let userStore = localStorage.getItem('user');
     let userData = userStore && JSON.parse(userStore);
-    return this.http.get<Order[]>('http://localhost:3000/orders?userId=' + userData.id);
+    return this.http.get<Order[]>(`http://localhost:8080/orders/${userData.userId}`);
   }
 
   deleteCartItems(cartId: number) {

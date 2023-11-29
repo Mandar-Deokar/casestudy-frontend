@@ -13,6 +13,7 @@ import { ProductCatgoryComponent } from './product-catgory/product-catgory.compo
 import { ProductCatgoryNavbarComponent } from './product-catgory-navbar/product-catgory-navbar.component';
 import { DisplayCartComponent } from './display-cart/display-cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { MyOrdersComponent } from './my-orders/my-orders.component';
 
 
 const routes: Routes = [
@@ -66,6 +67,10 @@ const routes: Routes = [
   {
     path : 'checkout',
     component : CheckoutComponent
+  },
+  {
+    path : 'myorders' ,
+    component : MyOrdersComponent
   }
 
 ];

@@ -6,7 +6,7 @@
     <div class="col-sm-8 details">
         <ul *ngFor="let cart of cartData">
             <li>
-                <img src="{{cart.image}}" alt="">
+                <img src="{{cart.image}}" alt="{{cart.productName}}">
             </li>
             <li>
                 <span> {{cart.productName}}</span>
