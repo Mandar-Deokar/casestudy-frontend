@@ -12,6 +12,8 @@ import { CartItem } from '../_.model/cartItemmodel';
   styleUrls: ['./display-cart.component.css']
 })
 export class DisplayCartComponent {
+
+  productQuantity : number = 1;
   cartData: CartItem[] | undefined;
   priceSummary: PriceSummary = {
     price: 0,
@@ -27,8 +29,8 @@ export class DisplayCartComponent {
 
   }
 
-  removeToCart(cartId: number | undefined) {
-    cartId && this.cartData && this.productservice.removeFromCart(cartId)
+  removeToCart(cartItemId: number | undefined) {
+    cartItemId && this.cartData && this.productservice.removeFromCart(cartItemId)
     .subscribe((result)=>{
       this.loadDetails();
     })
@@ -60,5 +62,21 @@ export class DisplayCartComponent {
 
   checkout() {
     this.router.navigate(['/checkout'])
+  }
+
+  handlequantity(operation: string, cartItem : CartItem) {
+    if(cartItem.quantity){
+      if (cartItem.quantity < 20 && operation === 'plus') {
+        cartItem.quantity += 1;
+        //console.log(cartItem.quantity)
+        this.productservice.changeQuantity(cartItem);
+        //this.loadDetails();
+      }
+      else if (cartItem.quantity > 1 && operation === 'minus') {
+        cartItem.quantity -= 1;
+        this.productservice.changeQuantity(cartItem);
+        //this.loadDetails();
+      }
+    }
   }
 }

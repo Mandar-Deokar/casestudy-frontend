@@ -1,0 +1,51 @@
+<div class="buynow">
+    <h1>Buy Now</h1>
+    <div class="row">
+      <div class="col-sm-7">
+        
+        
+
+        <div class="row order-result" *ngIf="product">
+    
+          <div class="col-sm-2" >
+              <img src="{{product.image}}" alt="{{product.productName}}">
+          </div>
+          <div class="col-sm-5 details">
+              <h6>{{product.productName | titlecase}}</h6>
+              <p><b>Price : {{product.price}}</b></p>
+              <p>Details : {{product.details | titlecase}}</p>
+              <p><span>Made In : {{product.madeIn | titlecase}}</span>
+              <p><span>Rating : {{product.rating}}</span></p>
+              <p><span>Category : {{product.category | titlecase}}</span></p>
+              <p><span>Brand : {{product.brand| titlecase}}</span></p>
+          </div>
+        </div>
+        
+      </div >
+      <div class="col-sm-5">
+        <h3>Add shipping address</h3>
+        <p class="message-p">{{OrderMessage}}</p>
+          <h3>Total Amount: {{totalprice}}</h3>
+          <h4>Payment Method : <b>Pay on delivery</b></h4>
+          <form #orderData="ngForm" class="common-form">
+            <input
+              type="text"
+              class="form-input"
+              name="address"
+              placeholder="Enter Address"
+              ngModel
+            />
+            <input
+              type="text"
+              class="form-input"
+              name="contact"
+              placeholder="Enter Contact"
+              ngModel
+            />
+            <button class="form-button" >Order Now</button>
+          </form>
+      </div>
+    </div>
+  </div>
+
+  

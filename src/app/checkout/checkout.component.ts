@@ -68,6 +68,6 @@ export class CheckoutComponent {
         }, 700)
       })
     }
-
+    
   }
 }

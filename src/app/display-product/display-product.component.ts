@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Product } from '../_.model/productmodel';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from '../_.services/product.service';
 import { Cart } from '../_.model/cartmodel';
 
@@ -14,21 +14,30 @@ export class DisplayProductComponent {
   productQuantity: number = 1;
   removeCart = false;
   cartData: Product | undefined
-  constructor(private activateRoute: ActivatedRoute, private productservice: ProductService) { }
+  constructor(private activateRoute: ActivatedRoute, private productservice: ProductService, private router : Router) { }
 
   ngOnInit(): void {
     let productId = this.activateRoute.snapshot.paramMap.get('productId');
-    console.warn(productId);
+    //console.warn(productId);
     productId && this.productservice.getproduct(productId).subscribe((result) => {
-      console.warn(result);
+      //console.warn(result);
       this.productdata = result;
 
-      let cartData = localStorage.getItem('localcart');
+      let cartData = localStorage.getItem('localCart');
+     //console.warn(cartData)
       if (productId && cartData) {
-        let items = JSON.parse(cartData);
-        items = items.filter((item: Product) => productId == item.productId.toString())
-        if (items.length) {
+        let item : Product[] = JSON.parse(cartData);
+        //console.warn(cartData);
+        //console.warn(items)
+        let filteredItems : Product[] = item.filter((product: Product) => productId?.toString() === product.productId.toString())
+        //console.warn(productId)
+        //console.warn(items.length);
+        console.warn(filteredItems);
+        if (filteredItems.length > 0) {
           this.removeCart = true;
+          if(filteredItems[0].quantity){
+            this.productQuantity  = filteredItems[0].quantity;
+          }
         }
         else {
           this.removeCart = false;
@@ -49,12 +58,16 @@ export class DisplayProductComponent {
           //console.log(filteredItems);
           if (filteredItems.length > 0) {
             //console.log(item);
-            this.cartData = item[0]
+            this.cartData = filteredItems[0]
             this.removeCart = true;
+            if(filteredItems[0].quantity){
+              this.productQuantity  = filteredItems[0].quantity;
+            }
           }
         })
       }
     })
+    //console.warn(this.productdata)
   }
 
 
@@ -103,6 +116,10 @@ export class DisplayProductComponent {
 
     if (!localStorage.getItem('user')) {
       this.productservice.removeItemFromCart(productId);
+      let cartData = localStorage.getItem('localCart');
+      if(!cartData){
+        localStorage.removeItem('localCart');
+      }
 
     }
     else {
@@ -118,6 +135,22 @@ export class DisplayProductComponent {
     }
     this.removeCart = false;
 
+  }
+
+  buynow(data : Product){
+    
+    let quantity = this.productQuantity;
+    let productId = data.productId;
+
+
+
+    // let productdata : Product = {
+    //   ...data,
+    // }
+    // this.productservice.buynow(productdata);
+    //const answer = 56
+    this.router.navigate([`buy-now/${this.productdata?.productId}/${this.productQuantity}`]);
+    //console.warn(data);
   }
 
 }

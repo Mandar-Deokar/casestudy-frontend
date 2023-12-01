@@ -8,7 +8,7 @@ export interface CartItem{
     rating : number,
     category : string,
     image : string,
-    quantity : undefined | number
+    quantity : undefined | number,
     userId : number,
     productId : number,
     cartItemId : number | undefined

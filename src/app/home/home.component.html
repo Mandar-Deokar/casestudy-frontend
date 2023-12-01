@@ -1,26 +1,125 @@
-<div class="row">
-    <div *ngFor="let product of productlist" class="col-md-3 mb-4">
-        <a routerLink="/display-product/{{product.productId}}">
+<h1 class="fw-normal mx-5 mt-3">Browse Products</h1>
+
+<div class="mx-5 row">
+
+    <!-- <div class="col-md-3">
         <div class="card h-100">
+            <h1>Filter Pr</h1>
+
             
+
+        </div>
+    </div> -->
+    <div *ngFor="let product of productlist" class="col-2">
+        <a routerLink="/display-product/{{product.productId}}">
+            <div class="card h-100">
+
                 <div class="image-div d-flex justify-content-center align-items-center">
                     <img [src]="product.image" class="image card-img-top img-fluid" alt="{{ product.productName }}">
                 </div>
                 <div class="card-body flex-grow-1 d-flex flex-column align-items-center">
-                    <h2 class="card-title">{{ product.productName }}</h2>
-                    <p class="card-text">details : {{ product.details }}</p>
-                    <p class="card-text">Price: Rs.{{ product.price }}</p>
+                    <h2 class="card-title fw-bold">{{ product.productName }}</h2>
+                    <!-- <p class="card-text">details : {{ product.details }}</p> -->
+                    <p class="card-text fw-bold">Price: Rs.{{ product.price }}</p>
                 </div>
                 <div class="card-footer">
                     <button class="addtocart btn btn-primary btn-sm">
                         <fa-icon [icon]="details"></fa-icon> View Detail
                     </button>
-                    <button class="buynow btn btn-primary btn-sm">
-                        <fa-icon [icon]="cart"></fa-icon> Add to Cart
-                    </button>
                 </div>
-            
-        </div>
+
+            </div>
         </a>
     </div>
+
+</div>
+<h1 class=" mt-5 mx-5 row">Browse Categories</h1>
+
+<div class="mx-5 row">
+    <div class="col-2">
+        <a>
+            <div class="card h-100">
+
+                <div class="image-div d-flex justify-content-center align-items-center">
+                    <img src="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630"
+                        class="image card-img-top img-fluid" alt="Electronics">
+                </div>
+                <div class="card-body flex-grow-1 d-flex flex-column align-items-center">
+                    <h2 class="card-title fw-bold">Electronics</h2>
+                    <!-- <p class="card-text">details : {{ product.details }}</p> -->
+                    <p class="card-text fw-bold"></p>
+                </div>
+
+            </div>
+        </a>
+    </div>
+    <div class="col-2">
+        <a>
+            <div class="card h-100">
+
+                <div class="image-div d-flex justify-content-center align-items-center">
+                    <img src="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630"
+                        class="image card-img-top img-fluid" alt="Electronics">
+                </div>
+                <div class="card-body flex-grow-1 d-flex flex-column align-items-center">
+                    <h2 class="card-title fw-bold">Electronics</h2>
+                    <!-- <p class="card-text">details : {{ product.details }}</p> -->
+                    <p class="card-text fw-bold"></p>
+                </div>
+
+            </div>
+        </a>
+    </div>
+    <div class="col-2">
+        <a>
+            <div class="card h-100">
+
+                <div class="image-div d-flex justify-content-center align-items-center">
+                    <img src="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630"
+                        class="image card-img-top img-fluid" alt="Electronics">
+                </div>
+                <div class="card-body flex-grow-1 d-flex flex-column align-items-center">
+                    <h2 class="card-title fw-bold">Electronics</h2>
+                    <!-- <p class="card-text">details : {{ product.details }}</p> -->
+                    <p class="card-text fw-bold"></p>
+                </div>
+
+            </div>
+        </a>
+    </div>
+    <div class="col-2">
+        <a>
+            <div class="card h-100">
+
+                <div class="image-div d-flex justify-content-center align-items-center">
+                    <img src="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630"
+                        class="image card-img-top img-fluid" alt="Electronics">
+                </div>
+                <div class="card-body flex-grow-1 d-flex flex-column align-items-center">
+                    <h2 class="card-title fw-bold">Electronics</h2>
+                    <!-- <p class="card-text">details : {{ product.details }}</p> -->
+                    <p class="card-text fw-bold"></p>
+                </div>
+
+            </div>
+        </a>
+    </div>
+    <div class="col-2">
+        <a>
+            <div class="card h-100">
+
+                <div class="image-div d-flex justify-content-center align-items-center">
+                    <img src="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630"
+                        class="image card-img-top img-fluid" alt="Electronics">
+                </div>
+                <div class="card-body flex-grow-1 d-flex flex-column align-items-center">
+                    <h2 class="card-title fw-bold">Electronics</h2>
+                    <!-- <p class="card-text">details : {{ product.details }}</p> -->
+                    <p class="card-text fw-bold"></p>
+                </div>
+
+            </div>
+        </a>
+    </div>
+
 </div>

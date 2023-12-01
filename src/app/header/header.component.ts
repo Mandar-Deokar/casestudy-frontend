@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from '../_.services/product.service';
 import { Product } from '../_.model/productmodel';
 import { JsonPipe } from '@angular/common';
@@ -15,8 +15,10 @@ export class HeaderComponent {
   vendorName : string = '';
   searchResult : undefined | Product[];
   userName : string = '';
-  cartItems = 0
-  constructor(private router:Router, private productservice : ProductService){}
+  userId: number = 0;
+ 
+  cartItems : number = 0
+  constructor(private router:Router, private productservice : ProductService, private route : ActivatedRoute){}
   logout(){
     localStorage.removeItem('vendor');
     this.router.navigate(['home']);
@@ -36,6 +38,7 @@ export class HeaderComponent {
             //console.log(vendorData);
             if (vendorData && vendorData.name) {
               this.vendorName = vendorData.name;
+              this.userId = vendorData.userId;
             } else {
               console.error("Vendor data or 'name' property is undefined");
             }
@@ -45,6 +48,7 @@ export class HeaderComponent {
           let userrstore = localStorage.getItem('user');
           let userData = userrstore && JSON.parse(userrstore);
           this.userName = userData.name;
+          this.userId = userData.userId;
           this.menuType = 'user';
           this.productservice.getcartList(userData.userId)
         }
@@ -58,8 +62,8 @@ export class HeaderComponent {
     let cartdata = localStorage.getItem('localCart');
     if(cartdata){
       this.cartItems = JSON.parse(cartdata).length
+      console.warn(cartdata)
     }
-
     this.productservice.cartData.subscribe((items)=>{
       this.cartItems = items.length;
     })
@@ -95,4 +99,6 @@ export class HeaderComponent {
   redirectToDetails(productId : number){
     this.router.navigate(['display-product/'+productId]);
   }
+
+
 }

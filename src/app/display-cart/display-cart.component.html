@@ -15,12 +15,17 @@
                 <span> Price : {{cart.price}}</span>
             </li>
             <li>
-                <span> Quantity : {{cart.quantity}}</span>
+                <span>
+                    <button (click)="handlequantity('minus', cart)">-</button>
+                    <input type="button" value="{{cart.quantity}}">
+                    <button (click)="handlequantity('plus', cart)">+</button>
+                </span>
             </li>
             <li >
                <button class="form-button"(click)="removeToCart(cart.cartItemId)" >Remove To Cart</button>
             </li>
         </ul>
+
         
     </div>
     <div class="col-sm-4 summary">

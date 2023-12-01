@@ -14,6 +14,8 @@ import { ProductCatgoryNavbarComponent } from './product-catgory-navbar/product-
 import { DisplayCartComponent } from './display-cart/display-cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { MyOrdersComponent } from './my-orders/my-orders.component';
+import { MyProfileComponent } from './my-profile/my-profile.component';
+import { BuyNowComponent } from './buy-now/buy-now.component';
 
 
 const routes: Routes = [
@@ -71,6 +73,14 @@ const routes: Routes = [
   {
     path : 'myorders' ,
     component : MyOrdersComponent
+  },
+  {
+    path : 'my-profile/:userId',
+    component : MyProfileComponent
+  },
+  {
+    path : 'buy-now/:productId/:quantity',
+    component : BuyNowComponent
   }
 
 ];

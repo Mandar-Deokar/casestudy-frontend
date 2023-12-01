@@ -33,6 +33,8 @@ export class VendorHomeComponent {
   setTimeout(()=>this.deleteproductmessage=undefined,2000);
  }
  list(){
+  let vendor = localStorage.getItem('vendor');
+    let userId = vendor && JSON.parse(vendor).userId;
   this.productservice.productList().subscribe((result)=>{
     this.productlist = result;
     console.log(this.productlist);

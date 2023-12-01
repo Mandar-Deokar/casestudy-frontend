@@ -1,0 +1,22 @@
+
+<div [ngSwitch]="menuType">
+        <ul *ngSwitchCase="'default'">
+            <li><a routerLink="vendor-auth">Vendor</a></li>
+            <li><a routerLink="">Home</a></li>
+            <li><a routerLink="user-auth">Login/Sign-up</a></li>
+            <li><a href="#">cart({{cartItems}})</a></li>
+        </ul>
+        <ul *ngSwitchCase="'user'">
+            <li><a routerLink="myorders">My Order</a></li>
+            <li><a routerLink="">Home</a></li>
+            <li><a routerLink="/my-profile/{{ userId }}">{{userName | titlecase}}</a></li>
+            <li><a (click)="userlogout()">Logout</a></li>
+            <li><a [routerLink]="cartItems>0?'display-cart':null">cart({{cartItems}})</a></li>
+        </ul>
+        <ul *ngSwitchCase="'vendor'">
+            <li><a routerLink="vendor-home">Product List</a></li>
+            <li><a routerLink="vendor-addproduct">Add Product</a></li>
+            <li><a (click)="logout()">Logout</a></li>
+            <li><a routerLink="/my-profile/{{ userId }}">{{vendorName | titlecase}}</a></li>
+        </ul>
+    </div>

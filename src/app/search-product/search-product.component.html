@@ -3,15 +3,12 @@
         <img src="{{product.image}}" alt="{{product.productName}}">
     </div>
     <div class="col-sm-8 details">
-        <h6>{{product.productName}}</h6>
+        <h6>{{product.productName | titlecase}}</h6>
         <p><b>price : {{product.price}}</b></p>
-        <p>Details : {{product.details}}</p>
-        <p><span>madein : {{product.madeIn}}</span><span>rating : {{product.rating}}</span></p>
-        <p><span>category : {{product.category}}</span><span>brand : {{product.brand}}</span></p>
-        <p>product serach ui</p>
-
-
+        <p>Details : {{product.details | titlecase}}</p>
+        <p><span>Made In : {{product.madeIn | titlecase}}</span>
+        <p><span>Rating : {{product.rating}}</span></p>
+        <p><span>Category : {{product.category | titlecase}}</span></p>
+        <p><span>Brand : {{product.brand | titlecase}}</span></p>
     </div>
-
-
 </div>

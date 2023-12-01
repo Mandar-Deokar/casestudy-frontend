@@ -25,6 +25,8 @@ import { ProductCatgoryNavbarComponent } from './product-catgory-navbar/product-
 import { DisplayCartComponent } from './display-cart/display-cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { MyOrdersComponent } from './my-orders/my-orders.component';
+import { MyProfileComponent } from './my-profile/my-profile.component';
+import { BuyNowComponent } from './buy-now/buy-now.component';
 
 
 
@@ -47,7 +49,9 @@ import { MyOrdersComponent } from './my-orders/my-orders.component';
     ProductCatgoryNavbarComponent,
     DisplayCartComponent,
     CheckoutComponent,
-    MyOrdersComponent
+    MyOrdersComponent,
+    MyProfileComponent,
+    BuyNowComponent
   ],
   imports: [
     BrowserModule,

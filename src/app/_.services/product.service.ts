@@ -11,6 +11,7 @@ import { Order, OrderItem } from '../_.model/ordermodel';
 export class ProductService {
 
   cartData = new EventEmitter<Product[] | []>();
+  buyNowData = new EventEmitter<Product | undefined >();
 
   constructor(private http : HttpClient) { }
 
@@ -126,6 +127,18 @@ export class ProductService {
     return this.http.get(`http://localhost:8080/cart/remove/${cartId}`).subscribe((result) => {
       this.cartData.emit([]);
     })
+  }
+
+  // buynow(data : Product){
+  //   this.buyNowData.emit(data);
+  // }
+
+  changeQuantity(cart : CartItem){
+    //console.log(cart);
+    this.http.post<CartItem>(`http://localhost:8080/cart/${cart.userId}/changeQuantity/${cart.productId}`, cart.quantity)
+    .subscribe((result)=>{
+      console.warn(result);
+    });
   }
 
  

@@ -1,0 +1,42 @@
+<div class="addproduct">
+    <h1>My Profile</h1>
+
+    <p class="message-p">{{updateProfileMessage}}</p>
+
+<!-- 
+    int userId;
+	String name;
+	String email;
+	String phone;
+	AddressDto address;
+	String role; -->
+
+    <!-- addressId: number,
+    street: string,
+    city: string,
+    state: string,
+    pincode: string -->
+
+    <form (ngSubmit)="updateProfilepage(user)" class="common-form">
+
+        <input class="form-input" name="name" placeholder="User Name" type="text" [(ngModel)]="user.name" required/>
+
+        <input class="form-input" name="email" placeholder="User Email" type="email" [(ngModel)]="user.email"  readonly/>
+
+        <input class="form-input" name="phone" placeholder="Contact" type="text" [(ngModel)]="user.phone" required/>
+
+        <input class="form-input" name="role" placeholder="Role" type="text" [(ngModel)]="user.role" />
+
+        <input class="form-input" name="street" placeholder="Street" type="text" [(ngModel)]="user.address.street" />
+
+        <input class="form-input" name="city" placeholder="City" type="text" [(ngModel)]="user.address.city" />
+
+        <input class="form-input" name="state" placeholder="State" type="text" [(ngModel)]="user.address.state" />
+
+        <input class="form-input" name="pincode" placeholder="Pincode" type="text" [(ngModel)]="user.address.pincode" />
+
+        <button class="form-button">Edit Profile</button>
+
+    </form>
+
+</div>

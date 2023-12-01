@@ -23,6 +23,8 @@ export class VendorUpdateproductComponent {
     });
   }
 
+
+  
   updateproduct(data : any){
     console.warn(data);
     if(this.product){
